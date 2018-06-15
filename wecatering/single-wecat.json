@@ -1,0 +1,8 @@
+{
+  "name":"dp",
+  "script":"/home/ubuntu/project/server.js",
+  "error_file"      : "/home/ubuntu/log/err.log",
+  "out_file"        : "/home/ubuntu/log/out.log",
+  "merge_logs"      : true,
+  "log_date_format" : "YYYY-MM-DD HH:mm Z"
+}

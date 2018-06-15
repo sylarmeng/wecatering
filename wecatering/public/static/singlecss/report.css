@@ -1,0 +1,38 @@
+/* css report */
+.chartWrapper {
+  padding:0 20px;
+}
+ @media(max-width : 767px) {
+  .chartWrapper {
+    padding:0px 5px;
+  }
+} 
+.reportNote {
+  text-align: center;
+  font-size: 16px;
+}
+.reportNote span {
+  margin-left: 10px;
+}
+.reportNote #title {
+  font-weight: bold;
+  margin-right: 15px;
+}
+.v-r-table table{
+  width: 95%;
+  text-align: center;
+}
+.v-r-table table tr{
+  border:1px solid #f7f7f7;
+}
+.v-r-table table th{
+  height: 44px;
+  text-align: center;
+}
+.chartBtn.btn {
+  font-size: 14px;
+}
+.chartBtn.btn.active {
+  background-color: #1f8dd6;
+  color:#fff;
+}

@@ -1,0 +1,127 @@
+<link rel="stylesheet" type="text/css" href="/static/flatty/login.css">
+
+<section id="intro" class="intro-section">
+<div class = "container">
+	<div class="row">
+	<div class="wrapper">
+		<form action="" method="post" name="Login_Form" class="form-signin">       
+		    <h3 class="form-signin-heading">注册</h3>
+			  <hr class="colorgraph"><br>
+
+			  {{!-- <input id="username" type="text" class="form-control" name="username" placeholder="用户名" required="" /> --}}
+			  <input id="mobile" type="text" class="form-control" name="mobile" placeholder="手机号" required="" />
+
+			{{!-- <div class="input-group">
+                <input id="CAPTCHA" type="text" class="form-control" name="CAPTCHA" placeholder="短信验证码" required="" />
+                <span class="input-group-btn" style="width:0;">
+                  <button id="reqsms" class="btn btn-md btn-success"  name="reqsms" value="Login" >请求验证码</button>
+                </span>
+            </div> --}}
+
+			  {{!-- <input id="email" type="text" class="form-control" name="email" placeholder="邮箱" required=""/> --}}
+			  <input id="password" type="password" class="form-control" name="password" placeholder="密码" required="ture"/>
+			  <button id="submit" class="btn btn-lg btn-success btn-block"  name="submit" value="Login" type="button">提交</button>
+              <div><p id="warnSignUp"></p></div>
+		</form>
+	</div>
+	</div>
+</div>
+</section>
+
+<script type="text/javascript">
+    var pwd_empty = 0;
+    var pwd_blur = 1;
+    $("#password").blur(function() {
+        pwd_blur=0;
+        if($("#password").val()==""){
+            if(pwd_empty==0){
+                $( "<p id=warn_password>密码不能为空</p>" ).insertAfter( "#password" );
+                pwd_empty=1;
+            }
+            return false
+        }
+        if(pwd_empty ==1){
+            $( "#warn_password").remove();
+            pwd_empty=0;
+        }
+    });
+    var mobile_blur = 1;
+    var mobile_formerr_set = 0;
+    var mobile_flag = 0;
+	$("#mobile").blur(function() {
+        mobile_blur=0;
+		var mobile=$("#mobile").val();
+        if(mobile_flag===1){
+            mobile_flag=0;
+            $( "#warn_mobile").remove();
+        }
+		if(!mobile.match(/^1(3|4|5|7|8)\d{9}$/)){
+
+			if(mobile_formerr_set==0){
+				$( "<p id=warn_mobile>手机号格式不正确</p>" ).insertAfter( "#mobile" );
+				$("#mobile").focus();
+				mobile_formerr_set =1;
+			}
+			return false;
+		}
+		if(mobile_formerr_set ==1){
+			$( "#warn_mobile").remove();
+			mobile_formerr_set =0;
+		}
+		$.ajax({
+            type: "POST",
+            url: "/signup",
+            timeout: 2000,
+            data: {datatype:"mobile",
+            		text: $("#mobile").val() },
+            success: function(data) {
+                if(data.data===1){
+                	if(mobile_flag===0){
+                		$( "<p id=warn_mobile>手机号已占用</p>" ).insertAfter( "#mobile" );
+                		mobile_flag=1;
+                	}
+                }
+                else{
+                	if(mobile_flag===1){
+                		mobile_flag=0;
+                		$( "#warn_mobile").remove();
+                	}
+                }
+            },
+            error: function(jqXHR, textStatus, err) {
+            }
+        });
+	});
+	$("#submit").click(function(){
+		if(pwd_empty||pwd_blur||mobile_flag||mobile_formerr_set||mobile_blur){
+			return;
+		}
+        $.ajax({
+            type: "POST",
+            url: "/signup",
+            timeout: 2000,
+            data: {datatype:"submit",
+                    mobile: $("#mobile").val(),
+                    password: $("#password").val()
+                },
+            success: function(data) {
+                if(data =='OK'){
+                    window.location.href='/shop/singin'
+                }
+                else{
+                    //基本不会发生
+                    document.getElementById("warnSignUp").innerHTML="服务端错误，联系客服";
+                    setTimeout(function(){
+                        document.getElementById("warnSignUp").innerHTML="";
+                    },3000);
+                }
+            },
+            error: function(jqXHR, textStatus, err) {
+                document.getElementById("warnSignUp").innerHTML="网络错误，联系客服";
+                setTimeout(function(){
+                    document.getElementById("warnSignUp").innerHTML="";
+                },3000);
+            }
+        });
+	 });
+</script>

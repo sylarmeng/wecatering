@@ -1,0 +1,75 @@
+/*
+ css for sale-orderBox
+ */
+.selmodebtn {
+  margin-left: 10px;
+}
+/* #22DDDE; */
+.orderBox{
+  border-top: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  overflow: hidden; 
+}
+/*
+ css for sale-orderArray
+ */
+.tableBadge {
+  background-color: #1f8dd6;
+  color:#FFF;
+  text-align: center;
+  width:60%;
+  font-size: 16px;
+  padding: 5px 0;
+}
+.orderBox {
+   margin-bottom: -99999px;
+   padding-bottom: 99999px;
+
+}
+.orderBox table{
+  width:100%;
+  
+}
+.orderBox table td {
+    width: 25%;
+    height: 30px;
+}
+.orderBox .btn{
+  height: 28px;
+  padding-top: 3px !important;
+}
+.orderArray {
+  overflow: hidden;
+}
+.occupy {
+  border: 1px solid #eee;
+}
+.orderline {
+   margin-bottom: 2px;
+   padding-top: 5px;
+   line-height: 25px;
+}
+.showSale {
+  /*display: table;*/
+}
+.doneButton {
+  display:none;
+}
+.undoButton {
+  background-color: transparent;
+  border-color: #00a9e5;
+  color: #00a9e5;
+}
+.ackBtn {
+  color:red;
+}
+.printBtn {
+}
+/*
+ css for sale-orderArray
+ button tooltip
+ */
+.tooltipNone{
+  display: none;
+}

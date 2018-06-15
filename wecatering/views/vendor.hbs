@@ -1,0 +1,94 @@
+
+<link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+<link href="/flatty/me.css" rel="stylesheet">
+{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+//- Safely remove this block if you are not targeting IE8 --}}
+<!--[if lt IE 9]>
+	<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
+	<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<section id="intro" class="intro-section">
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-md-3">
+			<div class="list-group">
+				<a href="/me" class="btn btn-default btn-block"></strong>我的账户</a>
+				<a href="/listproduct" class="btn btn-default btn-block"></strong>我的产品</a>
+				<a href="/itemcreate" class="btn btn-default btn-block"></strong>新建产品</a>
+				<div class="list-group" id="list-group">
+
+					{{# each data.posts}}
+					  <a href="/me/edit?title={{title}}" class="list-group-item">
+							<span class="fa-stack fa-lg">
+							<i class="fa-stack-2x fa fa-circle "></i>
+							<i class="fa-stack-1x text-primary fa fa-envelope "></i>
+							</span>
+							<span class="">{{title}}</span>
+					  </a>
+				 	{{/each}}
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8 col-md-9">
+			<div class="row">
+				<div class="col-md-8 ">
+					<form class="form-horizontal">
+						<fieldset>
+							<div class="form-group">
+							  <label class="col-md-4 control-label pull-left" for="Name (Full name)">昵称</label>  
+							  <div class="col-md-4">
+								 <div class="input-group">
+								       <input id="name" name="name" type="text" placeholder={{username}} class="form-control">
+								      </div>
+								  </div>
+							</div>
+
+							<div class="form-group">
+							  <label class="col-md-4 control-label pull-left" for="Name (Full name)">邮箱</label>  
+							  <div class="col-md-4">
+								 <div class="input-group">
+								       <input id="mail" name="mail" type="text" placeholder={{email}} class="form-control">
+								      </div>
+								  </div>
+							</div>
+
+
+						</fieldset>
+					</form>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-8 headicon">
+				    {{#if headicon}}
+	                    <img src= {{headicon}} width=100 alt="" class="center-block img-circle img-responsive" id="headicon0609">
+					{{else}}
+	                    <img src="/136214-emoticon-set/136214-emoticon-set/png/superhero-1.png" width=100 alt="" class="center-block img-circle img-responsive" id="headicon0609">
+					{{/if}}
+	            </div>
+			</div>
+			<div class="row">
+				<div class="col-md-10 ">
+					<div class="col-md-8 ">
+					<span class="btn btn-default fileinput-button pull-right">
+					        <i class="glyphicon glyphicon-plus"></i>
+					        <span>更改头像...</span>
+					        <input id="fileupload_input" type="file" name="headicon" multiple>
+				    </span>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+{{!-- {{>footer}} --}}
+
+<script src="/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+<script src="/js/custom/vendor/jquery.ui.widget.js"></script>
+<script src="/js/custom/jquery.iframe-transport.js"></script>
+<script src="/js/custom/jquery.fileupload.js"></script>
+<script src="/js/custom/uploadimg.js"></script>

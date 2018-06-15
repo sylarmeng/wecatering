@@ -1,0 +1,25 @@
+//2017.06.24
+此版本中加入了添加餐厅页面及api，但是未完善
+
+现有bug都已解决
+
+2017.06.28
+增加了餐厅页面的编辑功能
+增加了添加菜单页面和编辑功能
+尚未加入提交订单和订单实时通知
+
+//commands
+set NODE_ENV=production && npm run start:prod
+
+使用node-babel环境运行
+set NODE_ENV=production && npm run start:babel
+
+使用node环境运行
+set NODE_ENV=production && npm run start:test
+
+set NODE_ENV=production && npm run start
+全局安装的webpack
+测试
+webpack
+生产
+webpack -p

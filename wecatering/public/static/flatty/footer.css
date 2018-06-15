@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+html,body {
+ height: 100%; 
+}
+
+/*body {
+  display: table;
+  width: 100%;
+}
+*/
+/*.page-row {
+  display: table-row;
+}*/
+
+.footer {
+/*  right: 0;
+  bottom: 0;
+  left: 0;*/
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+.copyright,.design{
+    color: #858585;
+    line-height: 20px;
+    min-height: 20px;
+    padding: 7px 0;
+}
+
+

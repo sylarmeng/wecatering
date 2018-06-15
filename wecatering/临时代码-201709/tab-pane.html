@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8" />
+	<title>这是标题</title>
+
+	<meta name="keywords" content="cats,feline"/>
+	<meta name="date" content="2014-12-05"/>
+	<style type="text/css">
+
+			
+	.example-print {
+	    display: none;
+	}
+	@media print {
+	   .example-screen {
+	       display: none;
+	    }
+	    .example-print {
+	       display: block;
+	    }
+	    html, body { height: auto; }
+	}
+	</style>
+
+  	</head>
+  	<body>
+
+
+    <div class="example-screen">
+	<p>
+    You only see me in the browser
+    </p>
+    </div>
+
+	<div class="example-print">
+	<p>穆斯利安
+	</p>
+
+	</div>
+	<div id="printableArea">
+
+      <span>欣味</span>
+
+	</div>
+
+	<input type="button" onclick="printDiv('printableArea')" value="打印" />
+
+		<script>
+			function printDiv(divName) {
+			     var printContents = document.getElementById(divName).innerHTML;
+			     var originalContents = document.body.innerHTML;
+
+			     document.body.innerHTML = printContents;
+
+			     window.print();
+
+			     document.body.innerHTML = originalContents;
+			}
+		</script>
+  	</body>
+</html>
+

@@ -1,0 +1,36 @@
+/*signin css*/
+.wrapper {	
+	margin-top: 80px;
+  margin-bottom: 80px;
+}
+.form-signin {
+  max-width: 420px;
+  padding: 15px 25px 45px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  /*box-shadow: 0 0 3px 3px #888;*/
+  font-size: 16px;
+  text-align: center;
+}
+.sign-head span {
+  font-size: 22px;
+  text-decoration: underline;
+}
+.sign-input {
+  margin:20px 0;
+}
+.sign-input input,.sign-btn .btn{
+  width:80%;
+  height: 40px;
+  font-size: 16px;
+}
+.sign-note {
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+.sign-msg p {
+  color:#ff0000;
+}
+

@@ -1,0 +1,290 @@
+
+.hero {
+  background-color: #e6fff3;
+  padding: 0 90px;
+}
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+a {
+  color: #18bc9c;
+  text-decoration: none;
+}
+.navbar-default {
+  background-color: #2c3e50;
+  border-color: transparent;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #18bc9c;
+  background-color: transparent;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #18bc9c;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #1a242f;
+}
+.navbar-default .navbar-nav > .disabled > a,
+.navbar-default .navbar-nav > .disabled > a:hover,
+.navbar-default .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle {
+  border-color: #1a242f;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #1a242f;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: transparent;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: #1a242f;
+
+  color: #ffffff;
+}
+
+
+
+
+.comment-upload {
+/*background: none repeat scroll 0 0 #f5f5f5;*/
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+/*border: 1px solid #000000;*/
+float: left;
+width: 100%;
+}
+.comment-upload form {
+float: left;
+width: 100%;
+}
+/*.comment-upload form textarea {
+background: none repeat scroll 0 0 #fff;
+-webkit-border-radius: 4px 4px 0 0;
+-moz-border-radius: 4px 4px 0 0;
+-ms-border-radius: 4px 4px 0 0;
+-o-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+color: #777777;
+float: left;
+font-family: Lato;
+font-size: 14px;
+height: 142px;
+letter-spacing: 0.3px;
+padding: 20px;
+width: 100%;
+resize:vertical;
+outline:none;
+border: 1px solid #F2F2F2;
+box-shadow: 0 2px 0 #F2F2F2;
+}*/
+
+/* auto break long line */
+div{ 
+word-wrap: break-word; 
+word-break: normal; 
+}
+
+/* add comment css */
+
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+    color: rgb(102, 189, 221);
+}
+/*.comments-list {
+    margin-top: 200px;
+}*/
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+.media-left img{
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+.history{
+    color: rgb(200, 199, 199);
+}
+
+/*set table style*/
+.table_record tr td:nth-child(1){
+    width:10%;
+}
+.table_record tr td:nth-child(2){
+    width:45%;
+}
+
+
+
+/*circle button */
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  /*padding: 10px 16px;*/
+  padding: 10px 10px;
+
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+
+
+/*set 2D code modal dialog*/
+#primary .modal-dialog{
+  width:300px;
+}
+
+/*set select file input box*/
+#me_changeicon_unuse{
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+
+/*.custom-file{
+    float: left;
+    position: relative;
+    height: 20px;
+}*/
+.custom-file #iconfile {
+    /*position: absolute;*/
+    position: relative;
+    bottom:0;
+    left:20;
+    with: 100%;
+    height: 30px;
+    opacity: 50;
+}
+
+
+@charset "UTF-8";
+/*
+ * jQuery File Upload Plugin CSS
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px !important;
+  direction: ltr;
+  cursor: pointer;
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%;
+  }
+}
+
+
+/*me page*/
+.box
+{
+  border-color: #DBDEE0;
+  border-width: 1px;
+  border-style: solid;
+  margin: 0px 0px 10px 0px;
+  float: left;
+  width: 100%;
+  font-size: 14px;
+  background-color: #FFFFFF;
+}
+.box-header
+{
+  background-color: #F4F5F5;
+  color: #34383C;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  min-height: 40px;
+  border-bottom-color: #DBDEE0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+/*style for edit&me*/
+.postTitle_warn {
+    border-color: #FF0000;
+}
+

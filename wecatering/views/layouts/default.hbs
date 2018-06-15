@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{title}}</title>
+		<link rel="icon" href="favicon.ico" />
+		<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/flatty/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/flatty/index.css">
+
+		{{!-- <link rel="stylesheet" type="text/css" href="/flatty/footer.css"> --}}
+		<!-- <link rel="stylesheet" type="text/css" href="/flatty/bootstrap.css" media="screen"> -->
+		<script src="/static/scripts/jquery-1.12.3.min.js"></script>
+		<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+		<style type="text/css">
+
+			html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    color: #4B4B4B;
+    /*word-wrap: break-word;*/
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.7;
+    font-size: 1.6em;
+    font-weight: 300;
+    /*margin-bottom: 300px;*/
+}
+
+		</style>
+	</head>
+	<body>
+		{{!-- <nav class="navbar navbar-inverse" role="navigation"> --}}
+		<header id="site-header">
+		<nav class="navbar navbar-default" role="navigation">
+		<!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> -->
+			<div class="container">
+			   <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+			         data-target="#example-navbar-collapse">
+			         <span class="sr-only">切换导航</span>
+			         <span class="icon-bar"></span>
+			         <span class="icon-bar"></span>
+			         <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="/">
+			      	<strong><i class="fa fa-cutlery" aria-hidden="true"></i>欣味</strong>
+		          </a>
+		          {{!-- <a  href="/">
+			      	欣味
+		          </a> --}}
+			   </div>
+			   <div class="collapse navbar-collapse" id="example-navbar-collapse">
+			      <ul class="nav navbar-nav">
+			         <li ><a href="/">主页</a></li>
+					<li ><a href="/guide">使用指导</a></li>
+					<li ><a href="/demo">试用说明</a></li>
+			      </ul>
+			      <ul class="nav navbar-nav navbar-right">
+						{{#if username}}
+							<li>
+								<a href="/me">
+									<span class="glyphicon glyphicon-user"></span> 
+									<strong>{{username}}</strong>
+								</a>
+							</li>
+							<li><a href="/signout">退出</a></li>
+						{{else}}
+							
+							<li><a href="/shop/signin"><button class='btn btn-default'>登录</button></a></li>
+							<li><a href="/signup"><button class='btn btn-default'>注册</button></a></li>
+						{{/if}}
+						<li>{{page.path}}</li>
+					</ul>
+			   </div>
+	   		</div>
+		</nav>
+		</header>
+		<div class="dpcontent">
+		{{{body}}}
+		</div>
+		{{>footer}}
+	</body>
+</html>
