@@ -1,7 +1,7 @@
 
-var express = require('express')
-var path = require('path')
-var compression = require('compression')
+var express = require('express');
+var path = require('path');
+var compression = require('compression');
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -11,12 +11,12 @@ var exphbs  = require('express-handlebars');
 //全局事件发射器
 var pubsub = require('./eventhandle.js').pubsub;
 
-var apiroutes = require('./routes/index')
+var apiroutes = require('./routes/index');
 //预防Web 漏洞
 var helmet = require('helmet');
 
 
-var app = express()
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
@@ -43,7 +43,7 @@ app.engine('.hbs', exphbs({extname: '.hbs',
 
 app.set('view engine', '.hbs');
 
-app.use(compression())
+app.use(compression());
 
 app.use(bodyParser.json({limit: '5mb'}));
 app.use(bodyParser.urlencoded({ limit: '5mb',extended: false }));
@@ -58,13 +58,13 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/',apiroutes)
+app.use('/',apiroutes);
 
 app.get('*.js', function (req, res, next) {
   req.url = req.url + '.gz'
   res.set('Content-Encoding', 'gzip')
   next();
-})
+});
 
 
 var socket = require('socket.io-client')('http://localhost:3001');
@@ -88,64 +88,11 @@ pubsub.on('orderChecked', function(updateContent) {
     socket.emit('orderupdate',updateContent);
   });
 
-var PORT = process.env.PORT || 3000
+var PORT = process.env.PORT || 3000;
 /*app.listen(PORT, function() {
   console.log('server running at localhost:' + PORT)
 })*/
 
-// 目前在用这个
-/*http.listen(PORT, function(){
-  console.log('listening on *:3000');
-});*/
-
 http.listen(PORT, function(){
   console.log('listening on *:3000');
 });
-
-
-
-/*io.on('connection', function(socket){
-  console.log('a user connected',socket.id);
-  io.sockets.connected[socket.id].emit('reqroom');
-  socket.on('ack', function (data) {
-    console.log('accept msg',data)
-  });
-  socket.on('room', function (data) {
-
-    console.log('recv room id ')
-    redis.get(data+'_sk',function(err,socketid){
-      if(socketid){
-        redis.del(socketid);
-      }
-      // 此处逻辑不必顺序执行
-      redis.set(data+'_sk',socket.id)
-      redis.set(socket.id,data+'_sk')
-      socket.join(data)
-    })
-    console.log('recv uer:'+socket.id+'--with ID:'+data)
-  });
-
-  socket.on('disconnect', function () {
-    console.log('A user disconnected'+socket.id);
-    redis.get(socket.id,function(err,shopid){
-      if(shopid){
-        console.log('del shopid**'+shopid)
-        redis.del(shopid);
-      }
-      redis.del(socket.id);
-    })
-  });
-});*/
-
-/*pubsub.on('serverorderifo', function (data) {
-    // console.log('receive order')
-    redis.get(data.shopid+'_sk',function(err,shop_socketid){
-
-      // console.log('send order to*******************',shop_socketid)
-      //注意此处加出错处理，确认socket处于连接状态
-      if(shop_socketid){
-        io.sockets.connected[shop_socketid].emit('neworder', data.order);
-      }
-      // io.to(shopid).emit('neworder', data.order);
-    })
-  });*/

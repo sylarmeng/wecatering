@@ -1,3 +1,5 @@
+
+// 此文件可以删除
 module.exports ={
     cookieSecret:'deeperviewer',
     db:'deeperviewer',

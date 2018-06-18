@@ -2,9 +2,9 @@ var config = require('./config.js'),
     mongoose = require('mongoose');
 mongoose.Promise = require('q').Promise;
 
-// var config=require('./config.js');
+//使用环境变量来选择配置，生产环境要加上账户和密码
 var dburl='mongodb://'+config.dbip+'/'+config.dbname;
-
+// var dburl='mongodb://'+config.user+':'+config.pwd+'@'+config.dbip+'/'+config.dbname;
 module.exports = function(){
     var db = mongoose.connect(dburl,function(err) {
         if(err) {
@@ -17,11 +17,11 @@ module.exports = function(){
 };
 
 
+
 /*var config = require('./config.js'),
     mongoose = require('mongoose');
 mongoose.Promise = require('q').Promise;
 
-// var config=require('./config.js');
 var dburl='mongodb://'+config.user+':'+config.pwd+'@'+config.dbip+'/'+config.dbname;
 
 module.exports = function(){
